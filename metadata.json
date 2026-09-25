@@ -1,0 +1,6 @@
+{
+  "name": "Fios Design | Cabelo • Unha • Pele",
+  "description": "Bio site premium, moderno e cinematográfico do salão de beleza Fios Design em Maceió. Especialistas em cabelo, unhas, pele, cronograma capilar e estética de alto padrão.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
