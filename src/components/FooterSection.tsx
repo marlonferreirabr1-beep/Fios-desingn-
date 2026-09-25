@@ -17,17 +17,17 @@ export const FooterSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10 items-start">
           {/* Col 1: Brand & Logo */}
           <div className="md:col-span-5 flex flex-col items-start">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3.5 mb-4">
               <img
                 src={SALON_DATA.logoUrl}
                 alt="Fios Design Logo"
-                className="h-12 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]"
+                className="h-12 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)] shrink-0"
               />
               <div>
                 <h3 className="font-cinzel text-xl font-bold tracking-[0.2em] text-white uppercase">
                   {SALON_DATA.name}
                 </h3>
-                <p className="text-xs uppercase tracking-[0.25em] text-zinc-400 font-medium">
+                <p className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-zinc-300 font-medium leading-relaxed mt-0.5">
                   {SALON_DATA.tagline}
                 </p>
               </div>

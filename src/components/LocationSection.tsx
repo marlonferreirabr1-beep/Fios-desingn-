@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Navigation, Clock, Coffee, Wifi, Car, ExternalLink, Sparkles } from 'lucide-react';
 import { SALON_DATA } from '../data/salonData';
 import { GlowingIcon3D } from './ui/GlowingIcon3D';
 import { Card3D } from './ui/Card3D';
+import { getSalonStatus, type SalonStatus } from '../utils/salonStatus';
 
 export const LocationSection: React.FC = () => {
+  const [salonStatus, setSalonStatus] = useState<SalonStatus>(getSalonStatus);
+
+  useEffect(() => {
+    // Re-check salon status every 30 seconds in real time
+    const interval = setInterval(() => {
+      setSalonStatus(getSalonStatus());
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section
       id="localizacao"
@@ -74,17 +84,67 @@ export const LocationSection: React.FC = () => {
 
                   {/* Working Hours */}
                   <div className="mb-8 pt-6 border-t border-white/10">
-                    <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-300 mb-3.5">
-                      <Clock className="w-4 h-4 text-emerald-400" />
-                      <span>Horários de Atendimento</span>
+                    <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
+                      <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-300">
+                        <Clock className="w-4 h-4 text-emerald-400" />
+                        <span>Horários de Atendimento</span>
+                      </div>
+
+                      {/* 3D Dynamic Status Balloon (Aberto agora / Fechado) */}
+                      <div
+                        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide border shadow-[0_4px_16px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 ${
+                          salonStatus.isOpen
+                            ? 'bg-emerald-950/80 text-emerald-300 border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.25)]'
+                            : 'bg-rose-950/60 text-rose-300 border-rose-500/35 shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                        }`}
+                      >
+                        <span className="relative flex h-2 w-2">
+                          {salonStatus.isOpen && (
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          )}
+                          <span
+                            className={`relative inline-flex rounded-full h-2 w-2 ${
+                              salonStatus.isOpen ? 'bg-emerald-400' : 'bg-rose-400'
+                            }`}
+                          />
+                        </span>
+                        <span className="font-bold">{salonStatus.statusText}</span>
+                        <span className="text-[10px] opacity-80 font-normal">({salonStatus.details})</span>
+                      </div>
                     </div>
-                    <div className="space-y-2.5 text-xs">
-                      {SALON_DATA.hours.map((h) => (
-                        <div key={h.day} className="flex justify-between items-center text-zinc-300 py-1 border-b border-white/5">
-                          <span className="text-zinc-400">{h.day}</span>
-                          <span className="font-semibold text-zinc-200">{h.hours}</span>
-                        </div>
-                      ))}
+
+                    <div className="space-y-2 text-xs">
+                      {SALON_DATA.hours.map((h, i) => {
+                        const isTodayRow =
+                          (i === 0 && salonStatus.todayDayOfWeek >= 2 && salonStatus.todayDayOfWeek <= 5) ||
+                          (i === 1 && salonStatus.todayDayOfWeek === 6) ||
+                          (i === 2 && (salonStatus.todayDayOfWeek === 0 || salonStatus.todayDayOfWeek === 1));
+
+                        return (
+                          <div
+                            key={h.day}
+                            className={`flex justify-between items-center py-2 px-2.5 rounded-xl transition-all border ${
+                              isTodayRow
+                                ? 'bg-white/[0.07] border-white/20 text-white font-medium shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]'
+                                : 'border-transparent text-zinc-300'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <span className={isTodayRow ? 'text-white font-semibold' : 'text-zinc-400'}>
+                                {h.day}
+                              </span>
+                              {isTodayRow && (
+                                <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">
+                                  Hoje
+                                </span>
+                              )}
+                            </div>
+                            <span className={`font-semibold ${isTodayRow ? 'text-white' : 'text-zinc-200'}`}>
+                              {h.hours}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 

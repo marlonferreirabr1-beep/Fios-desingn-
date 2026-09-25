@@ -1,6 +1,12 @@
+import hairImg from '../assets/images/service_hair_luxury_1790356705715.jpg';
+import nailsImg from '../assets/images/service_nails_design_1790356717692.jpg';
+import lashesImg from '../assets/images/service_lashes_brow_1790356728648.jpg';
+import facialImg from '../assets/images/service_facial_skin_1790356739387.jpg';
+import pedicureImg from '../assets/images/service_pedicure_spa_1790356750207.jpg';
+
 export const SALON_DATA = {
   name: "FIOS DESIGN",
-  tagline: "Cabelo • Unha • Pele",
+  tagline: "Cabelo • Unha • Pele • Sobrancelha • Cílios • Facial • Spa dos Pés",
   heroSubtitle: "Beleza, cuidado e sofisticação em um só lugar.",
   aboutText:
     "Um espaço dedicado à beleza, ao cuidado e à transformação. Na Fios Design você encontra serviços especializados em cabelo, unhas, pele, sobrancelha, estética facial e spa dos pés, com atendimento pensado para proporcionar uma experiência especial.",
@@ -72,7 +78,7 @@ export const SALON_DATA = {
       name: "Cabelo",
       description: "Cortes modernos, mechas, cronograma intensivo, alisamentos e tratamentos térmicos desenvolvidos para a saúde capilar.",
       continuation: "Cada procedimento se inicia com uma análise detalhada da fibra capilar. Realizamos cortes alinhados ao seu visagismo, iluminações personalizadas que preservam a integridade dos fios, além de protocolos de recuperação profunda como nutrição lipídica, umectação com óleos nobres e selagem térmica de alta performance com acabamento sedoso e duradouro.",
-      image: "/src/assets/images/service_hair_luxury_1790356705715.jpg",
+      image: hairImg,
       highlights: ["Corte e Modelagem", "Cronograma Capilar", "Mechas e Iluminação", "Tratamentos Térmicos"],
     },
     {
@@ -80,7 +86,7 @@ export const SALON_DATA = {
       name: "Unhas",
       description: "Esmaltação em gel de longa duração, blindagem, banho de gel e acabamento de alta precisão para suas mãos.",
       continuation: "Trabalhamos com materiais de alta resistência e hipoalergênicos. Nossos procedimentos incluem cutilagem combinada (russa), estruturação e nivelamento da lâmina ungueal, blindagem diamantada contra quebras e esmaltação em gel com brilho espelhado que permanece impecável por semanas, sem lascar.",
-      image: "/src/assets/images/service_nails_design_1790356717692.jpg",
+      image: nailsImg,
       highlights: ["Alongamento em Gel", "Esmaltação em Gel", "Blindagem Diamante", "Manicure Russa"],
     },
     {
@@ -88,7 +94,7 @@ export const SALON_DATA = {
       name: "Cílios",
       description: "Extensão de cílios clássica, volume russo e híbrido com isolamento rigoroso e peso imperceptível para o olhar dos sonhos.",
       continuation: "Utilizamos fios ultrafinos de seda aplicados cuidadosamente fio a fio com adesivos dermatologicamente testados. O mapeamento (mapping) é personalizado de acordo com o formato dos seus olhos, garantindo harmonia, leveza absoluta e preservação total da saúde dos seus cílios naturais.",
-      image: "/src/assets/images/service_lashes_brow_1790356728648.jpg",
+      image: lashesImg,
       highlights: ["Volume Brasileiro", "Fio a Fio Clássico", "Volume Russo", "Lash Lifting"],
     },
     {
@@ -96,7 +102,7 @@ export const SALON_DATA = {
       name: "Sobrancelhas",
       description: "Design personalizado com mapeamento geométrico facial, henna com efeito degradê natural e micropigmentação sutil.",
       continuation: "O procedimento envolve estudo minucioso de visagismo e proporção facial com paquímetro. Realizamos limpeza precisa dos excessos, alinhamento dos fios com Brow Lamination e aplicação de henna exclusiva que preenche falhas de forma suave e elegante, criando um efeito sombreado natural.",
-      image: "/src/assets/images/service_lashes_brow_1790356728648.jpg",
+      image: lashesImg,
       highlights: ["Design Personalizado", "Mapeamento Facial", "Henna Efeito Sombra", "Brow Lamination"],
     },
     {
@@ -104,7 +110,7 @@ export const SALON_DATA = {
       name: "Facial",
       description: "Limpeza de pele profunda, drenagem facial, peeling de diamante e protocolos rejuvenescedores com ativos de última geração.",
       continuation: "Um protocolo completo que combina higienização enzimática, emoliência, extração minuciosa de cravos e impurezas, tonificação e aplicação de máscaras tensoras e revitalizantes. Estimula o colágeno, desobstrui os poros e devolve a luminosidade imediata à sua pele.",
-      image: "/src/assets/images/service_facial_skin_1790356739387.jpg",
+      image: facialImg,
       highlights: ["Limpeza Profunda", "Peeling de Diamante", "Drenagem Facial", "Máscaras Ouro & Prata"],
     },
     {
@@ -112,7 +118,7 @@ export const SALON_DATA = {
       name: "Spa dos Pés",
       description: "Imersão relaxante em água aromática, esfoliação nutritiva, remoção de asperezas e massagem reflexológica revigorante.",
       continuation: "Uma experiência de descanso e renovação. Inicia-se com imersão em água morna com sais essenciais e óleos botânicos, esfoliação para renovação celular, raspagem e lixamento seguro de calosidades, hidratação oclusiva profunda e massagem nos pontos de alívio das tensões.",
-      image: "/src/assets/images/service_pedicure_spa_1790356750207.jpg",
+      image: pedicureImg,
       highlights: ["Imersão Relaxante", "Esfoliação Nutritiva", "Remoção de Calosidades", "Massagem Relaxante"],
     },
     {
@@ -120,7 +126,7 @@ export const SALON_DATA = {
       name: "Pele",
       description: "Cuidados integrados de hidratação corporal e estética dermocosmética para restaurar viço, elasticidade e maciez.",
       continuation: "Tratamentos desenvolvidos para recuperar a barreira hidrolipídica e o viço natural. Incluem esfoliação renovadora, reposição de água e lipídios essenciais através de dermocosméticos de padrão internacional, proporcionando textura aveludada, firmeza e toque macio prolongado.",
-      image: "/src/assets/images/service_facial_skin_1790356739387.jpg",
+      image: facialImg,
       highlights: ["Hidratação Profunda", "Protocolos Corporais", "Revitalização Celular", "Esfoliação Suave"],
     },
   ],

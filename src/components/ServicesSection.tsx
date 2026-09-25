@@ -5,6 +5,16 @@ import { SALON_DATA } from '../data/salonData';
 import { RealWhatsAppLogo } from './icons/BrandIcons';
 import { Card3D } from './ui/Card3D';
 
+const FALLBACK_SERVICE_IMAGES: Record<string, string> = {
+  cabelo: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80',
+  unhas: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80',
+  cilios: 'https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80',
+  sobrancelhas: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80',
+  facial: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+  'spa-pes': 'https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=800&q=80',
+  pele: 'https://images.unsplash.com/photo-1512290900672-1f4a9b6c00f6?auto=format&fit=crop&w=800&q=80',
+};
+
 export const ServicesSection: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -120,7 +130,14 @@ export const ServicesSection: React.FC = () => {
                     <img
                       src={service.image}
                       alt={service.name}
-                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        const fallback = FALLBACK_SERVICE_IMAGES[service.id] || FALLBACK_SERVICE_IMAGES.cabelo;
+                        if (e.currentTarget.src !== fallback) {
+                          e.currentTarget.src = fallback;
+                        }
+                      }}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108 filter brightness-95 group-hover:brightness-105"
                     />
 
