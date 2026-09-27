@@ -3,7 +3,6 @@ import nailsImg from '../assets/images/service_nails_design_1790356717692.jpg';
 import lashesImg from '../assets/images/service_lashes_brow_1790356728648.jpg';
 import facialImg from '../assets/images/service_facial_skin_1790356739387.jpg';
 import pedicureImg from '../assets/images/service_pedicure_spa_1790356750207.jpg';
-
 export const SALON_DATA = {
   name: "FIOS DESIGN",
   tagline: "Cabelo • Unha • Pele • Sobrancelha • Cílios • Facial • Spa dos Pés",

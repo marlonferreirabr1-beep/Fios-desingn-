@@ -21,6 +21,9 @@ export const FooterSection: React.FC = () => {
               <img
                 src={SALON_DATA.logoUrl}
                 alt="Fios Design Logo"
+                loading="lazy"
+                decoding="async"
+                referrerPolicy="no-referrer"
                 className="h-12 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)] shrink-0"
               />
               <div>

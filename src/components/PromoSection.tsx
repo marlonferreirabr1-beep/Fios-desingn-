@@ -70,6 +70,14 @@ export const PromoSection: React.FC = () => {
                   <img
                     src={SALON_DATA.promoImageUrl}
                     alt="Promoção Cronograma Capilar Fios Design"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      const fallback = "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80";
+                      if (e.currentTarget.src !== fallback) {
+                        e.currentTarget.src = fallback;
+                      }
+                    }}
                     className="w-full h-auto object-contain select-none transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>

@@ -43,6 +43,9 @@ export const Navbar: React.FC = () => {
             <img
               src={SALON_DATA.logoUrl}
               alt="Fios Design"
+              loading="eager"
+              decoding="async"
+              referrerPolicy="no-referrer"
               className="h-10 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.2)] transition-transform duration-300 group-hover:scale-105"
             />
           </a>

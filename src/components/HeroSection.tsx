@@ -58,6 +58,22 @@ export const HeroSection: React.FC = () => {
             <img
               src={SALON_DATA.logoUrl}
               alt="Logo Oficial Fios Design"
+              loading="eager"
+              decoding="async"
+              crossOrigin="anonymous"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.currentTarget;
+                const mirrors = [
+                  "https://i.postimg.cc/4fXJ8zQ9/file-000000009ad4820e8201501896e7179e.png",
+                  "https://postimg.cc/zBPZvHMz",
+                  "https://i.postimg.cc/zBPZvHMz/file-000000009ad4820e8201501896e7179e.png"
+                ];
+                const currentIdx = mirrors.indexOf(target.src);
+                if (currentIdx !== -1 && currentIdx < mirrors.length - 1) {
+                  target.src = mirrors[currentIdx + 1];
+                }
+              }}
               className="w-auto h-52 sm:h-64 md:h-76 max-w-[92vw] object-contain select-none transition-transform duration-700 group-hover:scale-[1.04]"
               style={{
                 filter:
